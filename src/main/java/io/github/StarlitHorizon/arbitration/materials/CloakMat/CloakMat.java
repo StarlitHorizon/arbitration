@@ -1,6 +1,6 @@
-package hori.arbitration.materials.CloakMat;
+package io.github.StarlitHorizon.arbitration.materials.CloakMat;
 
-import hori.arbitration.Arbitration;
+import io.github.StarlitHorizon.arbitration.Arbitration;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;

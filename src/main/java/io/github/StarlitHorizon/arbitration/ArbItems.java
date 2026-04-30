@@ -1,6 +1,7 @@
-package hori.arbitration;
+package io.github.StarlitHorizon.arbitration;
 
-import hori.arbitration.materials.CloakMat.CloakMat;
+import io.github.StarlitHorizon.arbitration.Custom.items.BinahEssence;
+import io.github.StarlitHorizon.arbitration.materials.CloakMat.CloakMat;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.core.Registry;
@@ -28,6 +29,10 @@ public class ArbItems {
             .icon(() -> new ItemStack(ArbItems.BINAH_ARBITER_CLOAK))
             .title(Component.translatable("creativeTab.arbitration"))
             .displayItems((_, output) -> {
+				output.accept(ArbItems.CLOTH);
+				output.accept(ArbItems.IMPROVED_CLOTH);
+				output.accept(ArbItems.REFINED_CLOTH);
+				output.accept(ArbItems.BINAH_ESSENCE);
                 output.accept(ArbItems.BASIC_ARBITER_CLOAK);
                 output.accept(ArbItems.IMPROVED_ARBITER_CLOAK);
                 output.accept(ArbItems.REFINED_ARBITER_CLOAK);
@@ -55,6 +60,13 @@ public class ArbItems {
             new Item.Properties()
                     .repairable(CloakMat.REPAIRS_T2_CLOAK)
     );
+
+	public static final Item BINAH_ESSENCE = register(
+		"binah_essence",
+		BinahEssence::new,
+		new Item.Properties()
+			.useCooldown(1.00F)
+	);
 
     public static final Item BASIC_ARBITER_CLOAK = register(
             "basic_arbiter_cloak",

@@ -1,4 +1,4 @@
-package hori.arbitration.mixin;
+package io.github.StarlitHorizon.arbitration.mixin;
 
 import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;

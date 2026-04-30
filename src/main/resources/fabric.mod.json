@@ -1,24 +1,23 @@
 {
 	"schemaVersion": 1,
-	"id": "${modId}",
-	"version": "${version}",
-	"name": "${modName}",
-	"description": "${modDescription}",
+	"id": "arbitration",
+	"version": "1.0.0",
+	"name": "Arbitration",
+	"description": "Become an Arbiter today! Judge others! (Made for modfest 26)",
 	"authors": [
-		"${authors}"
+		"StarryHorizon"
 	],
 	"contributors": [
-		"${contributors}"
 	],
 	"contact": {
 		"homepage": "${homepage}",
 		"issues": "${issues}",
 		"sources": "${sources}"
 	},
-	"license": "${license}",
-	"icon": "assets/${modId}/icon.png",
+	"license": "EUPL-1.2",
+	"icon": "assets/arbitration/icon.png",
 	"mixins": [
-		"${modId}.mixins.json"
+		"arbitration.mixins.json"
 	],
 	"depends": {
 		"minecraft": ">=${minecraftVersion}",
@@ -29,7 +28,7 @@
 	},
 	"entrypoints": {
 		"main": [
-			"io.github.username.modid.ModId"
+			"io.github.StarlitHorizon.arbitration.Arbitration"
 		],
 		"client": [
 		]
