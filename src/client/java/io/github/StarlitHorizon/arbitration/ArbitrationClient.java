@@ -1,6 +1,8 @@
-package client.java.io.github.StarlitHorizon.arbitration.client;
+package io.github.StarlitHorizon.arbitration;
 
 import io.github.StarlitHorizon.arbitration.Custom.entities.ArbEntTypes;
+import io.github.StarlitHorizon.arbitration.entity.ArbEntityModelLayers;
+import io.github.StarlitHorizon.arbitration.entity.ArbPillarEntityRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 

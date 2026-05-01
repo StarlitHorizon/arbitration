@@ -1,4 +1,4 @@
-package client.java.io.github.StarlitHorizon.arbitration.client;
+package io.github.StarlitHorizon.arbitration.entity;
 
 import io.github.StarlitHorizon.arbitration.Arbitration;
 import net.fabricmc.fabric.api.client.rendering.v1.ModelLayerRegistry;

@@ -1,4 +1,4 @@
-package client.java.io.github.StarlitHorizon.arbitration.client.mixin;
+package client.java.io.github.StarlitHorizon.arbitration.mixin;
 
 import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;

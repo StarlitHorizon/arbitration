@@ -4,6 +4,7 @@
 	"version": "1.0.0",
 	"name": "Arbitration",
 	"description": "Become an Arbiter today! Judge others! (Made for modfest 26)",
+	"environment": "*",
 	"authors": [
 		"StarryHorizon"
 	],
@@ -31,6 +32,7 @@
 			"io.github.StarlitHorizon.arbitration.Arbitration"
 		],
 		"client": [
+			"io.github.StarlitHorizon.arbitration.ArbitrationClient"
 		]
 	}
 }

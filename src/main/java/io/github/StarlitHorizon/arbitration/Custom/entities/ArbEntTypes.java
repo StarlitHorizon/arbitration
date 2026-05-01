@@ -14,7 +14,7 @@ public class ArbEntTypes {
 	public static final EntityType<ArbPillar> ARB_PILLAR = register(
 		"arb_pillar",
 		EntityType.Builder.<ArbPillar>of(ArbPillar::new, MobCategory.MISC)
-			.sized(1f, 1f)
+			.sized(0.75F,0.75F)
 	);
 
 	private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> builder) {

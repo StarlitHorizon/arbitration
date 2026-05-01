@@ -21,6 +21,17 @@ java {
 	toolchain.languageVersion = JavaLanguageVersion.of(25)
 }
 
+loom {
+	splitEnvironmentSourceSets()
+
+	mods {
+		create("arbitration") {
+			sourceSet(sourceSets["main"])
+			sourceSet(sourceSets["client"])
+		}
+	}
+}
+
 tasks.processResources {
 	val user: String by project
 	val authors: String by project
