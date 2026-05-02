@@ -15,6 +15,9 @@ public class ArbEntTypes {
 		"arb_pillar",
 		EntityType.Builder.<ArbPillar>of(ArbPillar::new, MobCategory.MISC)
 			.sized(0.75F,0.75F)
+			.noLootTable()
+			.clientTrackingRange(4)
+			.updateInterval(10)
 	);
 
 	private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> builder) {

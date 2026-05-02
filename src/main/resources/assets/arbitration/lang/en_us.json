@@ -10,5 +10,6 @@
   "item.arbitration.binah_arbiter_cloak": "The Arbiter's Cloak",
   "item.arbitration.binah_cloak_lore1": "A cloak which once belonged to",
   "item.arbitration.binah_cloak_lore2": "an Arbiter of a different world.",
+	"entity.arbitration.arbpillar": "Pillar",
   "creativeTab.arbitration": "Arbitration"
 }

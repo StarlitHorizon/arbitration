@@ -1,18 +1,13 @@
-<!--suppress HtmlDeprecatedTag, XmlDeprecatedElement -->
-<center><img alt="mod preview" src="https://upload.wikimedia.org/wikipedia/commons/7/70/Example.png"/></center>
 
 <center>
-A short quick summary of this mod
+Adds a Certain Someone's stuff
 </center>
 
 ---
 
-A long description of your mod, including 
-- Dot point lists of all features
-
-`path/to/config/files` if you have them
-
-Screenshots of features where possible
+Adds two items!
+- Essence
+- Cloak
 
 ---
 
