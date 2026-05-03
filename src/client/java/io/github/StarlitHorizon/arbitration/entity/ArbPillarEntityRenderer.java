@@ -1,20 +1,15 @@
 package io.github.StarlitHorizon.arbitration.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 import io.github.StarlitHorizon.arbitration.Arbitration;
 import io.github.StarlitHorizon.arbitration.Custom.entities.ArbPillar;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.feature.ItemFeatureRenderer;
-import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.Identifier;
-import net.minecraft.util.Unit;
-import org.jspecify.annotations.NonNull;
 
 public class ArbPillarEntityRenderer extends EntityRenderer<ArbPillar, ArbPillarEntityRenderState> {
 	private static final Identifier TEXTURE = Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "textures/entity/arb_pillar.png");
