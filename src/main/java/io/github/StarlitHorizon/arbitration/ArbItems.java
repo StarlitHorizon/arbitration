@@ -1,5 +1,6 @@
 package io.github.StarlitHorizon.arbitration;
 
+import io.github.StarlitHorizon.arbitration.Custom.component.ArbComponents;
 import io.github.StarlitHorizon.arbitration.Custom.items.BinahEssence;
 import io.github.StarlitHorizon.arbitration.materials.CloakMat.CloakMat;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
@@ -15,7 +16,10 @@ import net.minecraft.util.Unit;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.equipment.ArmorType;
 
@@ -65,7 +69,16 @@ public class ArbItems {
 		"binah_essence",
 		BinahEssence::new,
 		new Item.Properties()
-			.useCooldown(1.00F)
+			.useCooldown(5F)
+			.component(ArbComponents.ESSENCE_MODE, "Pillar")
+			.rarity(Rarity.EPIC)
+			.fireResistant()
+	);
+	//Unused item; only for ARB_FAIRY's texture
+	public static final Item FAIRY = register(
+		"fairy",
+		Item::new,
+		new Item.Properties()
 	);
 
     public static final Item BASIC_ARBITER_CLOAK = register(

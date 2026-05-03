@@ -1,11 +1,18 @@
 package io.github.StarlitHorizon.arbitration;
 
+import io.github.StarlitHorizon.arbitration.Custom.component.ArbComponents;
+import io.github.StarlitHorizon.arbitration.Custom.effect.ArbEffects;
 import io.github.StarlitHorizon.arbitration.Custom.entities.ArbEntTypes;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
+import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.Registry;
+import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,13 +30,21 @@ public class Arbitration implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		ArbItems.initialize();
+		ArbComponents.initialize();
 		ArbEntTypes.registerModEntityTypes();
+
 		ItemTooltipCallback.EVENT.register((stack, context, type, tooltip) -> {
 			if (stack.is(ArbItems.BINAH_ARBITER_CLOAK)) {
 				tooltip.add(1,Component.translatable("item.arbitration.binah_cloak_lore1").withStyle(ChatFormatting.ITALIC,ChatFormatting.GOLD));
 				tooltip.add(2,Component.translatable("item.arbitration.binah_cloak_lore2").withStyle(ChatFormatting.ITALIC,ChatFormatting.GOLD));
 			}
 		});
-		LOGGER.info("{mod_id}: god help me");
+		ItemTooltipCallback.EVENT.register((stack, context, type, tooltip) -> {
+			if (stack.is(ArbItems.BINAH_ESSENCE)) {
+			String mode = stack.getOrDefault(ArbComponents.ESSENCE_MODE,"Pillar");
+			tooltip.add(1, Component.translatable("item.arbitration.essence_mode.info1",mode).withStyle(ChatFormatting.GOLD,ChatFormatting.ITALIC));
+			tooltip.add(2, Component.translatable("item.arbitration.essence_mode.info2").withStyle(ChatFormatting.GOLD,ChatFormatting.ITALIC));
+		}});
+		LOGGER.info("Arbitration: god help me");
 	}
 }

@@ -3,6 +3,8 @@
   "item.arbitration.improved_cloth": "Improved cloth",
   "item.arbitration.refined_cloth": "Refined cloth",
 	"item.arbitration.binah_essence": "Essence of An Arbiter",
+	"item.arbitration.essence_mode.info1": "Right click to use %1$s.",
+	"item.arbitration.essence_mode.info2": "Shift+Right click to change mode.",
   "item.arbitration.basic_cloak": "Introductory Arbiter's Cloak",
   "item.arbitration.basic_arbiter_cloak": "Junior Arbiter's Cloak",
   "item.arbitration.improved_arbiter_cloak": "Senior Arbiter's Cloak",
@@ -11,5 +13,7 @@
   "item.arbitration.binah_cloak_lore1": "A cloak which once belonged to",
   "item.arbitration.binah_cloak_lore2": "an Arbiter of a different world.",
 	"entity.arbitration.arbpillar": "Pillar",
+	"effect.arbitration.fairy": "Fairy",
+	"death.attack.fairy": "%1$s was unlocked.",
   "creativeTab.arbitration": "Arbitration"
 }

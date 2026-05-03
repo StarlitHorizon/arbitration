@@ -23,13 +23,16 @@
 	"depends": {
 		"minecraft": ">=${minecraftVersion}",
 		"fabricloader": ">=${fabricLoaderVersion}",
-		"fabric-api": ">=${fabricApiVersion}"
+		"fabric-api": ">=${fabricApiVersion}",
+		"yet_another_config_lib_v3": ">=3.9.3"
 	},
 	"suggests": {
 	},
 	"entrypoints": {
 		"main": [
-			"io.github.StarlitHorizon.arbitration.Arbitration"
+			"io.github.StarlitHorizon.arbitration.Arbitration",
+			"io.github.StarlitHorizon.arbitration.Custom.effect.ArbEffects",
+			"io.github.StarlitHorizon.arbitration.Custom.ArbDamageTypes"
 		],
 		"client": [
 			"io.github.StarlitHorizon.arbitration.ArbitrationClient"
