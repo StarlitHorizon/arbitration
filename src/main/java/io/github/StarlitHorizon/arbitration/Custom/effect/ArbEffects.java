@@ -14,6 +14,11 @@ public class ArbEffects implements ModInitializer {
 			Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "fairy"),
 			new FairyEffect()
 		);
+	public static final Holder<MobEffect> LOCK =
+		Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT,
+			Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "lock"),
+			new LockEffect()
+		);
 	@Override
 	public void onInitialize() {
 

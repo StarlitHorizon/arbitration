@@ -29,6 +29,24 @@ public class ArbEntTypes {
 			.updateInterval(10)
 	);
 
+	public static final EntityType<ArbChain> ARB_CHAIN = register(
+		"arb_chain",
+		EntityType.Builder.<ArbChain>of(ArbChain::new, MobCategory.MISC)
+			.sized(0.5F,0.5F)
+			.noLootTable()
+			.clientTrackingRange(4)
+			.updateInterval(10)
+	);
+
+	public static final EntityType<ArbLock> ARB_LOCK = register(
+		"arb_lock",
+		EntityType.Builder.<ArbLock>of(ArbLock::new, MobCategory.MISC)
+			.sized(0.5F,0.5F)
+			.noLootTable()
+			.clientTrackingRange(4)
+			.updateInterval(10)
+	);
+
 	private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> builder) {
 		ResourceKey<EntityType<?>> key = ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, name));
 		return Registry.register(BuiltInRegistries.ENTITY_TYPE, key, builder.build(key));

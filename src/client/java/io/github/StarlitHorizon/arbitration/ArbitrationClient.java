@@ -21,5 +21,7 @@ public class ArbitrationClient implements ClientModInitializer {
 		ArbEntityModelLayers.registerModelLayers();
 		EntityRenderers.register(ArbEntTypes.ARB_PILLAR, ArbPillarEntityRenderer::new);
 		EntityRenderers.register(ArbEntTypes.ARB_FAIRY, ThrownItemRenderer::new);
+		EntityRenderers.register(ArbEntTypes.ARB_CHAIN, ThrownItemRenderer::new);
+		EntityRenderers.register(ArbEntTypes.ARB_LOCK, ThrownItemRenderer::new);
 	}
 }

@@ -1,7 +1,7 @@
 package io.github.StarlitHorizon.arbitration;
 
 import io.github.StarlitHorizon.arbitration.Custom.component.ArbComponents;
-import io.github.StarlitHorizon.arbitration.Custom.items.BinahEssence;
+import io.github.StarlitHorizon.arbitration.Custom.items.*;
 import io.github.StarlitHorizon.arbitration.materials.CloakMat.CloakMat;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
@@ -33,156 +33,65 @@ public class ArbItems {
             .icon(() -> new ItemStack(ArbItems.BINAH_ARBITER_CLOAK))
             .title(Component.translatable("creativeTab.arbitration"))
             .displayItems((_, output) -> {
-				output.accept(ArbItems.CLOTH);
-				output.accept(ArbItems.IMPROVED_CLOTH);
-				output.accept(ArbItems.REFINED_CLOTH);
+				output.accept(ArbItems.BINAH_FAIRY);
+				output.accept(ArbItems.BINAH_CHAIN);
+				output.accept(ArbItems.BINAH_PILLAR);
+				output.accept(ArbItems.BINAH_LOCK);
 				output.accept(ArbItems.BINAH_ESSENCE);
-                output.accept(ArbItems.BASIC_ARBITER_CLOAK);
-                output.accept(ArbItems.IMPROVED_ARBITER_CLOAK);
-                output.accept(ArbItems.REFINED_ARBITER_CLOAK);
                 output.accept(ArbItems.BINAH_ARBITER_CLOAK);
             })
             .build();
-
-    public static final Item CLOTH = register(
-            "cloth",
-            Item::new,
-            new Item.Properties()
-                    .repairable(CloakMat.REPAIRS_T0_CLOAK)
-    );
-
-    public static final Item IMPROVED_CLOTH = register(
-            "improved_cloth",
-            Item::new,
-            new Item.Properties()
-                    .repairable(CloakMat.REPAIRS_T1_CLOAK)
-    );
-
-    public static final Item REFINED_CLOTH = register(
-            "refined_cloth",
-            Item::new,
-            new Item.Properties()
-                    .repairable(CloakMat.REPAIRS_T2_CLOAK)
-    );
 
 	public static final Item BINAH_ESSENCE = register(
 		"binah_essence",
 		BinahEssence::new,
 		new Item.Properties()
 			.useCooldown(5F)
-			.component(ArbComponents.ESSENCE_MODE, "Pillar")
+			.component(ArbComponents.ESSENCE_MODE, "Fairy")
 			.rarity(Rarity.EPIC)
 			.fireResistant()
+			.stacksTo(1)
 	);
-	//Unused item; only for ARB_FAIRY's texture
-	public static final Item FAIRY = register(
-		"fairy",
-		Item::new,
+
+	public static final Item BINAH_FAIRY = register(
+		"binah_fairy",
+		BinahFairy::new,
 		new Item.Properties()
+			.useCooldown(6F)
+			.rarity(Rarity.RARE)
+			.fireResistant()
+			.stacksTo(1)
 	);
 
-    public static final Item BASIC_ARBITER_CLOAK = register(
-            "basic_arbiter_cloak",
-            Item::new,
-            new Item.Properties()
-                    .humanoidArmor(
-                            CloakMat.BASIC_CLOAK,
-                            ArmorType.CHESTPLATE
-                    )
-                    .durability(
-                            ArmorType.CHESTPLATE.getDurability(
-                            CloakMat.BASE_DURABILITY
-                            )
-                    )
-    );
+	public static final Item BINAH_CHAIN = register(
+		"binah_chain",
+		BinahChain::new,
+		new Item.Properties()
+			.useCooldown(6F)
+			.rarity(Rarity.RARE)
+			.fireResistant()
+			.stacksTo(1)
+	);
 
-    public static final Item IMPROVED_ARBITER_CLOAK = register(
-            "improved_arbiter_cloak",
-            Item::new,
-            new Item.Properties()
-                    .humanoidArmor(
-                            CloakMat.IMPROVED_CLOAK,
-                            ArmorType.CHESTPLATE
-                    )
-                    .durability(
-                            (int) (ArmorType.CHESTPLATE.getDurability(
-                                    CloakMat.BASE_DURABILITY
-                            )*1.5)
-                    )
-                    .attributes(
-                            ItemAttributeModifiers.builder()
-                                    .add(Attributes.MAX_HEALTH, new AttributeModifier(
-                                            Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "cbuff0-1.1"),
-                                                    2.0,
-                                                    AttributeModifier.Operation.ADD_VALUE),
-                                            EquipmentSlotGroup.CHEST)
-                                    .add(Attributes.MOVEMENT_SPEED, new AttributeModifier(
-                                            Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "cbuff0-1.2"),
-                                                    0.1,
-                                                    AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-                                            EquipmentSlotGroup.CHEST)
-                                    .add(Attributes.ATTACK_DAMAGE, new AttributeModifier(
-                                            Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "cbuff0-1.3"),
-                                                    0.1,
-                                                    AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL),
-                                            EquipmentSlotGroup.CHEST)
-                                    .add(Attributes.ARMOR, new AttributeModifier(
-                                            Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "cbuff0-1.4"),
-                                                    6,
-                                                    AttributeModifier.Operation.ADD_VALUE),
-                                            EquipmentSlotGroup.CHEST)
-                                    .add(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(
-                                            Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "cbuff0-1.5"),
-                                                    0.5,
-                                                    AttributeModifier.Operation.ADD_VALUE),
-                                            EquipmentSlotGroup.CHEST)
-                                    .build()
-                    )
-    );
+	public static final Item BINAH_LOCK = register(
+		"binah_lock",
+		BinahLock::new,
+		new Item.Properties()
+			.useCooldown(8F)
+			.rarity(Rarity.RARE)
+			.fireResistant()
+			.stacksTo(1)
+	);
 
-    public static final Item REFINED_ARBITER_CLOAK = register(
-            "refined_arbiter_cloak",
-            Item::new,
-            new Item.Properties()
-                    .humanoidArmor(
-                            CloakMat.REFINED_CLOAK,
-                            ArmorType.CHESTPLATE
-                    )
-                    .durability(
-                            ArmorType.CHESTPLATE.getDurability(
-                                    CloakMat.BASE_DURABILITY
-                            )*2
-                    )
-                    .attributes(
-                            ItemAttributeModifiers.builder()
-                                    .add(Attributes.MAX_HEALTH, new AttributeModifier(
-                                                    Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "cbuff0-2.1"),
-                                                    5.0,
-                                                    AttributeModifier.Operation.ADD_VALUE),
-                                            EquipmentSlotGroup.CHEST)
-                                    .add(Attributes.MOVEMENT_SPEED, new AttributeModifier(
-                                                    Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "cbuff0-2.2"),
-                                                    0.2,
-                                                    AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-                                            EquipmentSlotGroup.CHEST)
-                                    .add(Attributes.ATTACK_DAMAGE, new AttributeModifier(
-                                                    Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "cbuff0-2.3"),
-                                                    0.2,
-                                                    AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
-                                            EquipmentSlotGroup.CHEST)
-                                    .add(Attributes.ARMOR, new AttributeModifier(
-                                                    Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "cbuff0-2.4"),
-                                                    9,
-                                                    AttributeModifier.Operation.ADD_VALUE),
-                                            EquipmentSlotGroup.CHEST)
-                                    .add(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(
-                                                    Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "cbuff0-2.5"),
-                                                    2.5,
-                                                    AttributeModifier.Operation.ADD_VALUE),
-                                            EquipmentSlotGroup.CHEST)
-                                    .build()
-                    ).rarity(Rarity.UNCOMMON)
-    );
+	public static final Item BINAH_PILLAR = register(
+		"binah_pillar",
+		BinahPillar::new,
+		new Item.Properties()
+			.useCooldown(8F)
+			.rarity(Rarity.RARE)
+			.fireResistant()
+			.stacksTo(1)
+	);
 
     public static final Item BINAH_ARBITER_CLOAK = register(
             "binah_arbiter_cloak",

@@ -41,7 +41,7 @@ public class Arbitration implements ModInitializer {
 		});
 		ItemTooltipCallback.EVENT.register((stack, context, type, tooltip) -> {
 			if (stack.is(ArbItems.BINAH_ESSENCE)) {
-			String mode = stack.getOrDefault(ArbComponents.ESSENCE_MODE,"Pillar");
+			String mode = stack.getOrDefault(ArbComponents.ESSENCE_MODE,"Fairy");
 			tooltip.add(1, Component.translatable("item.arbitration.essence_mode.info1",mode).withStyle(ChatFormatting.GOLD,ChatFormatting.ITALIC));
 			tooltip.add(2, Component.translatable("item.arbitration.essence_mode.info2").withStyle(ChatFormatting.GOLD,ChatFormatting.ITALIC));
 		}});
