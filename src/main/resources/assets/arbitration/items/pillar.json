@@ -1,6 +1,6 @@
 {
-	"parent": "minecraft:item/generated",
-	"textures": {
-		"layer0": "arbitration:item/pillar"
+	"model": {
+		"type": "minecraft:model",
+		"model": "arbitration:item/pillar"
 	}
 }

@@ -30,7 +30,7 @@ public class ArbItems {
             BuiltInRegistries.CREATIVE_MODE_TAB.key(), Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "arb_creative_tab")
     );
     public static final CreativeModeTab ARB_CREATIVE_TAB = FabricCreativeModeTab.builder()
-            .icon(() -> new ItemStack(ArbItems.BINAH_ARBITER_CLOAK))
+            .icon(() -> new ItemStack(ArbItems.BINAH_ESSENCE))
             .title(Component.translatable("creativeTab.arbitration"))
             .displayItems((_, output) -> {
 				output.accept(ArbItems.BINAH_FAIRY);
@@ -38,7 +38,6 @@ public class ArbItems {
 				output.accept(ArbItems.BINAH_PILLAR);
 				output.accept(ArbItems.BINAH_LOCK);
 				output.accept(ArbItems.BINAH_ESSENCE);
-                output.accept(ArbItems.BINAH_ARBITER_CLOAK);
             })
             .build();
 
@@ -54,7 +53,7 @@ public class ArbItems {
 	);
 
 	public static final Item BINAH_FAIRY = register(
-		"binah_fairy",
+		"fairy",
 		BinahFairy::new,
 		new Item.Properties()
 			.useCooldown(6F)
@@ -64,7 +63,7 @@ public class ArbItems {
 	);
 
 	public static final Item BINAH_CHAIN = register(
-		"binah_chain",
+		"chain",
 		BinahChain::new,
 		new Item.Properties()
 			.useCooldown(6F)
@@ -74,7 +73,7 @@ public class ArbItems {
 	);
 
 	public static final Item BINAH_LOCK = register(
-		"binah_lock",
+		"lock",
 		BinahLock::new,
 		new Item.Properties()
 			.useCooldown(8F)
@@ -84,7 +83,7 @@ public class ArbItems {
 	);
 
 	public static final Item BINAH_PILLAR = register(
-		"binah_pillar",
+		"pillar",
 		BinahPillar::new,
 		new Item.Properties()
 			.useCooldown(8F)
@@ -92,57 +91,6 @@ public class ArbItems {
 			.fireResistant()
 			.stacksTo(1)
 	);
-
-    public static final Item BINAH_ARBITER_CLOAK = register(
-            "binah_arbiter_cloak",
-            Item::new,
-            new Item.Properties()
-                    .humanoidArmor(
-                            CloakMat.BINAH_CLOAK,
-                            ArmorType.CHESTPLATE
-                    )
-                    .attributes(
-                            ItemAttributeModifiers.builder()
-                                    .add(Attributes.MAX_HEALTH, new AttributeModifier(
-                                            Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "cbuffb.1"),
-                                                    20.0,
-                                                    AttributeModifier.Operation.ADD_VALUE),
-                                            EquipmentSlotGroup.CHEST)
-                                    .add(Attributes.MAX_HEALTH, new AttributeModifier(
-                                            Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "cbuffb.2"),
-                                                    2.5,
-                                                    AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL),
-                                            EquipmentSlotGroup.CHEST)
-                                    .add(Attributes.MOVEMENT_SPEED, new AttributeModifier(
-                                            Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "cbuffb.3"),
-                                                    0.75,
-                                                    AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL),
-                                            EquipmentSlotGroup.CHEST)
-                                    .add(Attributes.ATTACK_DAMAGE, new AttributeModifier(
-                                            Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "cbuffb.4"),
-                                                    1.5,
-                                                    AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL),
-                                            EquipmentSlotGroup.CHEST)
-                                    .add(Attributes.ARMOR, new AttributeModifier(
-                                            Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "cbuffb.5"),
-                                                    25,
-                                                    AttributeModifier.Operation.ADD_VALUE),
-                                            EquipmentSlotGroup.CHEST)
-                                    .add(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(
-                                            Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "cbuffb.6"),
-                                                    15,
-                                                    AttributeModifier.Operation.ADD_VALUE),
-                                            EquipmentSlotGroup.CHEST)
-                                    .add(Attributes.STEP_HEIGHT, new AttributeModifier(
-                                                    Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "cbuffb.7"),
-                                                    1,
-                                                    AttributeModifier.Operation.ADD_VALUE),
-                                            EquipmentSlotGroup.CHEST)
-                                    .build()
-                    )
-                    .component(DataComponents.UNBREAKABLE, Unit.INSTANCE)
-                    .rarity(Rarity.EPIC).fireResistant()
-    );
 
     public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
         // Create the item key.
@@ -159,6 +107,6 @@ public class ArbItems {
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ARB_CREATIVE_TAB_KEY, ARB_CREATIVE_TAB);
 
         CreativeModeTabEvents.modifyOutputEvent(ARB_CREATIVE_TAB_KEY)
-                .register((creativeTab) -> creativeTab.accept(ArbItems.BINAH_ARBITER_CLOAK));
+                .register((creativeTab) -> creativeTab.accept(ArbItems.BINAH_ESSENCE));
     }
 }
