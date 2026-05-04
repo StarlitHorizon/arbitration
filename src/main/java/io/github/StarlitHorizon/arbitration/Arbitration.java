@@ -39,6 +39,26 @@ public class Arbitration implements ModInitializer {
 			tooltip.add(1, Component.translatable("item.arbitration.essence_mode.info1",mode).withStyle(ChatFormatting.GOLD,ChatFormatting.ITALIC));
 			tooltip.add(2, Component.translatable("item.arbitration.essence_mode.info2").withStyle(ChatFormatting.GOLD,ChatFormatting.ITALIC));
 		}});
+		ItemTooltipCallback.EVENT.register((stack, context, type, tooltip) -> {
+			if (stack.is(ArbItems.BINAH_FAIRY)) {
+				tooltip.add(1, Component.translatable("item.arbitration.fairy.lore").withStyle(ChatFormatting.GOLD,ChatFormatting.ITALIC));
+			}});
+		ItemTooltipCallback.EVENT.register((stack, context, type, tooltip) -> {
+			if (stack.is(ArbItems.BINAH_CHAIN)) {
+				tooltip.add(1, Component.translatable("item.arbitration.chain.lore").withStyle(ChatFormatting.GOLD,ChatFormatting.ITALIC));
+			}});
+		ItemTooltipCallback.EVENT.register((stack, context, type, tooltip) -> {
+			if (stack.is(ArbItems.BINAH_PILLAR)) {
+				tooltip.add(1, Component.translatable("item.arbitration.pillar.lore").withStyle(ChatFormatting.GOLD,ChatFormatting.ITALIC));
+			}});
+		ItemTooltipCallback.EVENT.register((stack, context, type, tooltip) -> {
+			if (stack.is(ArbItems.BINAH_LOCK)) {
+				tooltip.add(1, Component.translatable("item.arbitration.lock.lore").withStyle(ChatFormatting.GOLD,ChatFormatting.ITALIC));
+			}});
+		ItemTooltipCallback.EVENT.register((stack, context, type, tooltip) -> {
+			if (stack.is(ArbItems.MIMICRY)) {
+				tooltip.add(1, Component.translatable("item.arbitration.mimicry.lore").withStyle(ChatFormatting.GOLD,ChatFormatting.ITALIC));
+			}});
 		LOGGER.info("Arbitration: god help me");
 	}
 }

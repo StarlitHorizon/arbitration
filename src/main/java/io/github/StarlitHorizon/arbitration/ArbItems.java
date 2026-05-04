@@ -43,7 +43,7 @@ public class ArbItems {
 		"binah_essence",
 		BinahEssence::new,
 		new Item.Properties()
-			.useCooldown(5F)
+			.useCooldown(4F)
 			.component(ArbComponents.ESSENCE_MODE, "Fairy")
 			.rarity(Rarity.EPIC)
 			.fireResistant()
@@ -99,7 +99,7 @@ public class ArbItems {
 			.fireResistant()
 			.stacksTo(1)
 			.component(DataComponents.UNBREAKABLE,Unit.INSTANCE)
-			.sword(ToolMaterial.NETHERITE,10,-2.6F)
+			.sword(ToolMaterial.NETHERITE,10,-2.8F)
 	);
 
     public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
