@@ -19,6 +19,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
@@ -34,8 +35,11 @@ public class Mimicry extends Item {
 	@Override
 	public InteractionResult use(Level level, Player user, InteractionHand hand) {
 		if (level instanceof ServerLevel serverLevel) {
-			AreaEffectCloud shockwave = new AreaEffectCloud(serverLevel, user.getX(), user.getEyeY()-0.2, user.getZ());
-
+			user.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 5*20, 1));
+			user.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 5*20, 0));
+			user.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 10*20, 0));
+			AreaEffectCloud shockwave = new AreaEffectCloud(serverLevel, user.getX(), user.getEyeY()-1, user.getZ());
+			user.invulnerableTime=10;
 			shockwave.setOwner(user);
 			shockwave.setCustomParticle(new DustParticleOptions(ARGB.color(158, 0, 0), 1.5F));
 			shockwave.setRadius(5F);

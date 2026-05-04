@@ -69,12 +69,13 @@ public class BinahEssence extends Item implements ProjectileItem {
 			user.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 300, 3));
 			shockwave.setOwner(user);
 			shockwave.setCustomParticle(FabricBlockParticleOption.create(ParticleTypes.BLOCK_CRUMBLE,user.getBlockStateOn(),new BlockPos(user.getBlockX(), user.getBlockX()-1, user.getBlockX())));
-			shockwave.setRadius(0.5F);
+			shockwave.setRadius(12.5F);
 			shockwave.setWaitTime(0);
 			shockwave.setDuration(12);
-			shockwave.setRadiusPerTick(1F);
+			shockwave.setRadiusPerTick(0F);
 			shockwave.setPotionDurationScale(1);
 			serverLevel.addFreshEntity(shockwave);
+			user.invulnerableTime=10;
 			List<LivingEntity> targets = user.level().getEntitiesOfClass(LivingEntity.class, shockwave.getBoundingBox());
 			for (LivingEntity entity : targets) {
 				if (entity!=user) {
