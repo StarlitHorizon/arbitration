@@ -54,7 +54,7 @@ public class ArbItems {
 		"fairy",
 		BinahFairy::new,
 		new Item.Properties()
-			.useCooldown(6F)
+			.useCooldown(8F)
 			.rarity(Rarity.RARE)
 			.fireResistant()
 			.stacksTo(1)
@@ -64,7 +64,7 @@ public class ArbItems {
 		"chain",
 		BinahChain::new,
 		new Item.Properties()
-			.useCooldown(6F)
+			.useCooldown(8F)
 			.rarity(Rarity.RARE)
 			.fireResistant()
 			.stacksTo(1)
@@ -74,7 +74,7 @@ public class ArbItems {
 		"lock",
 		BinahLock::new,
 		new Item.Properties()
-			.useCooldown(8F)
+			.useCooldown(10F)
 			.rarity(Rarity.RARE)
 			.fireResistant()
 			.stacksTo(1)
@@ -84,7 +84,7 @@ public class ArbItems {
 		"pillar",
 		BinahPillar::new,
 		new Item.Properties()
-			.useCooldown(8F)
+			.useCooldown(10F)
 			.rarity(Rarity.RARE)
 			.fireResistant()
 			.stacksTo(1)
