@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " F ",
+    "CNL",
+    " P "
+  ],
+  "key": {
+    "F": "arbitration:fairy",
+    "C": "arbitration:chain",
+    "N": "minecraft:nether_star",
+    "L": "arbitration:lock",
+    "P": "arbitration:pillar"
+  },
+  "result": {
+    "id": "arbitration:binah_essence"
+  }
+}

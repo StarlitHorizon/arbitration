@@ -34,11 +34,11 @@ public class Mimicry extends Item {
 	@Override
 	public InteractionResult use(Level level, Player user, InteractionHand hand) {
 		if (level instanceof ServerLevel serverLevel) {
-			AreaEffectCloud shockwave = new AreaEffectCloud(serverLevel, user.getX(), (user.getEyeY()*0.9), user.getZ());
+			AreaEffectCloud shockwave = new AreaEffectCloud(serverLevel, user.getX(), user.getEyeY()-0.2, user.getZ());
 
 			shockwave.setOwner(user);
 			shockwave.setCustomParticle(new DustParticleOptions(ARGB.color(158, 0, 0), 1.5F));
-			shockwave.setRadius(4F);
+			shockwave.setRadius(5F);
 			shockwave.setWaitTime(0);
 			shockwave.setDuration(2);
 			shockwave.setRadiusPerTick(0F);

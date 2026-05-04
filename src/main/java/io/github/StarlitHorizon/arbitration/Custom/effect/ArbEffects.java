@@ -22,7 +22,7 @@ public class ArbEffects implements ModInitializer {
 	public static final Holder<MobEffect> BLEED =
 		Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT,
 			Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "bleed"),
-			new LockEffect()
+			new BleedEffect()
 		);
 	@Override
 	public void onInitialize() {
