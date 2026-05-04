@@ -57,5 +57,4 @@ disconnect-*.txt
 
 # custom
 # Examples of what you might want to put here:
-#   generated/
-#   .local/
+build/libs/arbitration-1.0.0+fabric-26.1.jar
