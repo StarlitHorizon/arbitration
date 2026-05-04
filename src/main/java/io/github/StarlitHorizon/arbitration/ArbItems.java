@@ -2,7 +2,6 @@ package io.github.StarlitHorizon.arbitration;
 
 import io.github.StarlitHorizon.arbitration.Custom.component.ArbComponents;
 import io.github.StarlitHorizon.arbitration.Custom.items.*;
-import io.github.StarlitHorizon.arbitration.materials.CloakMat.CloakMat;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.minecraft.core.Registry;
@@ -13,12 +12,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.Unit;
-import net.minecraft.world.entity.EquipmentSlotGroup;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.component.ItemAttributeModifiers;
-import net.minecraft.world.item.equipment.ArmorType;
 
 import java.util.function.Function;
 
@@ -36,6 +30,9 @@ public class ArbItems {
 				output.accept(ArbItems.BINAH_LOCK);
 				output.accept(ArbItems.BINAH_ESSENCE);
 				output.accept(ArbItems.MIMICRY);
+				output.accept(ArbItems.SERUMK);
+				output.accept(ArbItems.SERUMR);
+				output.accept(ArbItems.SERUMW);
             })
             .build();
 
@@ -94,12 +91,36 @@ public class ArbItems {
 		"mimicry",
 		Mimicry::new,
 		new Item.Properties()
-			.useCooldown(5F)
+			.useCooldown(15F)
 			.rarity(Rarity.EPIC)
 			.fireResistant()
 			.stacksTo(1)
 			.component(DataComponents.UNBREAKABLE,Unit.INSTANCE)
 			.sword(ToolMaterial.NETHERITE,10,-2.8F)
+	);
+
+	public static final Item SERUMW = register(
+		"serumw",
+		Serumw::new,
+		new Item.Properties()
+			.useCooldown(5F)
+			.rarity(Rarity.EPIC)
+	);
+
+	public static final Item SERUMR = register(
+		"serumr",
+		Serumr::new,
+		new Item.Properties()
+			.useCooldown(5F)
+			.rarity(Rarity.EPIC)
+	);
+
+	public static final Item SERUMK = register(
+		"serumk",
+		Serumk::new,
+		new Item.Properties()
+			.useCooldown(7.5F)
+			.rarity(Rarity.EPIC)
 	);
 
     public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
