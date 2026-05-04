@@ -67,7 +67,6 @@ public class BinahEssence extends Item implements ProjectileItem {
 		} else if (level instanceof ServerLevel serverLevel && mode.equals("Shockwave")) {
 			AreaEffectCloud shockwave = new AreaEffectCloud(serverLevel, user.getX(), user.getY(), user.getZ());
 			user.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 300, 3));
-
 			shockwave.setOwner(user);
 			shockwave.setCustomParticle(FabricBlockParticleOption.create(ParticleTypes.BLOCK_CRUMBLE,user.getBlockStateOn(),new BlockPos(user.getBlockX(), user.getBlockX()-1, user.getBlockX())));
 			shockwave.setRadius(0.5F);
