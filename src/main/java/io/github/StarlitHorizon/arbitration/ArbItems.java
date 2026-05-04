@@ -91,7 +91,7 @@ public class ArbItems {
 		"mimicry",
 		Mimicry::new,
 		new Item.Properties()
-			.useCooldown(15F)
+			.useCooldown(10F)
 			.rarity(Rarity.EPIC)
 			.fireResistant()
 			.stacksTo(1)
