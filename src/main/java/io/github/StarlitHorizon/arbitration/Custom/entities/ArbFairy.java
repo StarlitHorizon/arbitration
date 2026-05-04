@@ -46,7 +46,7 @@ public class ArbFairy extends ThrowableItemProjectile {
 	protected void onHit(final HitResult hitResult) {
 		super.onHit(hitResult);
 		if (this.level() instanceof ServerLevel serverLevel) {
-			serverLevel.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ANVIL_PLACE, this.getSoundSource());
+			serverLevel.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.ANVIL_PLACE, this.getSoundSource(),0.5F,1);
 		}
 		this.discard();
 	}

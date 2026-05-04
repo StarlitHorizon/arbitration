@@ -12,6 +12,7 @@ public class ArbDamageTypes implements ModInitializer {
 
 	public static final ResourceKey<DamageType> FAIRY_DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE, Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "fairy"));
 	public static final ResourceKey<DamageType> PULVERISE_DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE, Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "pulverise"));
+	public static final ResourceKey<DamageType> BLEED_DAMAGE = ResourceKey.create(Registries.DAMAGE_TYPE, Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "bleed"));
 	// :::1
 
 	@Override

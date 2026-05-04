@@ -19,6 +19,11 @@ public class ArbEffects implements ModInitializer {
 			Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "lock"),
 			new LockEffect()
 		);
+	public static final Holder<MobEffect> BLEED =
+		Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT,
+			Identifier.fromNamespaceAndPath(Arbitration.MOD_ID, "bleed"),
+			new LockEffect()
+		);
 	@Override
 	public void onInitialize() {
 

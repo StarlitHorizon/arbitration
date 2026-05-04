@@ -65,12 +65,6 @@ tasks.processResources {
 	}
 }
 
-repositories {
-	maven("https://maven.isxander.dev/releases") {
-		name = "Xander Maven"
-	}
-}
-
 publishing {
 	publications {
 		register<MavenPublication>("mavenJava") {

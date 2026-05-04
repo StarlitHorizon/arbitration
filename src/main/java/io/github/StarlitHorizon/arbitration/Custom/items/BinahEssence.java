@@ -2,6 +2,7 @@ package io.github.StarlitHorizon.arbitration.Custom.items;
 
 import io.github.StarlitHorizon.arbitration.ArbItems;
 import io.github.StarlitHorizon.arbitration.Arbitration;
+import io.github.StarlitHorizon.arbitration.Custom.ArbDamageTypes;
 import io.github.StarlitHorizon.arbitration.Custom.component.ArbComponents;
 import io.github.StarlitHorizon.arbitration.Custom.effect.ArbEffects;
 import io.github.StarlitHorizon.arbitration.Custom.entities.ArbChain;
@@ -16,9 +17,13 @@ import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.particles.PowerParticleOption;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -48,6 +53,8 @@ public class BinahEssence extends Item implements ProjectileItem {
 		String mode = itemStack.getOrDefault(ArbComponents.ESSENCE_MODE, "Fairy");
 		if (user.isShiftKeyDown()) {
 			index = modes.indexOf(mode) + 1;
+			level.playSound(null,user, SoundEvents.END_PORTAL_FRAME_FILL,user.getSoundSource(),0.75F,1.5F);
+
 		}
 		else if (level instanceof ServerLevel serverLevel && mode.equals("Fairy")) {
 			Projectile.spawnProjectileFromRotation(ArbFairy::new, serverLevel, ArbItems.BINAH_FAIRY.getDefaultInstance(), user, 0.0F, 4.5F, 0);
@@ -68,16 +75,22 @@ public class BinahEssence extends Item implements ProjectileItem {
 			shockwave.setDuration(12);
 			shockwave.setRadiusPerTick(1F);
 			shockwave.setPotionDurationScale(1);
-			shockwave.addEffect(new MobEffectInstance(MobEffects.INSTANT_DAMAGE, 1, 3));
-			shockwave.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 300, 1));
-			shockwave.addEffect(new MobEffectInstance(ArbEffects.LOCK, 300, 2));
-			user.invulnerableTime=12;
 			serverLevel.addFreshEntity(shockwave);
-			for (int i = 0; i < 12; i++) {
-				user.removeEffect(MobEffects.SLOWNESS);
-				user.removeEffect(MobEffects.INSTANT_DAMAGE);
-				user.removeEffect(ArbEffects.LOCK);
+			List<LivingEntity> targets = user.level().getEntitiesOfClass(LivingEntity.class, shockwave.getBoundingBox());
+			for (LivingEntity entity : targets) {
+				if (entity!=user) {
+					entity.hurtServer(serverLevel,
+						new DamageSource(
+							level.registryAccess()
+								.lookupOrThrow(Registries.DAMAGE_TYPE)
+								.get(ArbDamageTypes.PULVERISE_DAMAGE.identifier()).orElseThrow()),
+						15);
+					entity.addEffect(new MobEffectInstance(MobEffects.INSTANT_DAMAGE, 1, 3));
+					entity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 300, 1));
+					entity.addEffect(new MobEffectInstance(ArbEffects.LOCK, 300, 2));
+				}
 			}
+			level.playSound(null,user, SoundEvents.MACE_SMASH_GROUND_HEAVY,user.getSoundSource(),1,1);
 		}
 		itemStack.set(ArbComponents.ESSENCE_MODE, modes.get(index % 5));
 		return InteractionResult.SUCCESS;

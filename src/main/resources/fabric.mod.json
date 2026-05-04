@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
 	"id": "arbitration",
-	"version": "1.0.0",
+	"version": "1.2.0",
 	"name": "Arbitration",
-	"description": "Become an Arbiter today! Judge others! (Made for modfest 26)",
+	"description": "Become the Binahpple (Made for modfest 26)",
 	"environment": "*",
 	"authors": [
 		"StarryHorizon"
@@ -23,8 +23,7 @@
 	"depends": {
 		"minecraft": ">=${minecraftVersion}",
 		"fabricloader": ">=${fabricLoaderVersion}",
-		"fabric-api": ">=${fabricApiVersion}",
-		"yet_another_config_lib_v3": ">=3.9.3"
+		"fabric-api": ">=${fabricApiVersion}"
 	},
 	"suggests": {
 	},

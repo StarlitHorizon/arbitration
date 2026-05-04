@@ -16,10 +16,7 @@ import net.minecraft.util.Unit;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.equipment.ArmorType;
 
@@ -38,6 +35,7 @@ public class ArbItems {
 				output.accept(ArbItems.BINAH_PILLAR);
 				output.accept(ArbItems.BINAH_LOCK);
 				output.accept(ArbItems.BINAH_ESSENCE);
+				output.accept(ArbItems.MIMICRY);
             })
             .build();
 
@@ -90,6 +88,18 @@ public class ArbItems {
 			.rarity(Rarity.RARE)
 			.fireResistant()
 			.stacksTo(1)
+	);
+
+	public static final Item MIMICRY = register(
+		"mimicry",
+		Mimicry::new,
+		new Item.Properties()
+			.useCooldown(5F)
+			.rarity(Rarity.EPIC)
+			.fireResistant()
+			.stacksTo(1)
+			.component(DataComponents.UNBREAKABLE,Unit.INSTANCE)
+			.sword(ToolMaterial.NETHERITE,10,-2.6F)
 	);
 
     public static <T extends Item> T register(String name, Function<Item.Properties, T> itemFactory, Item.Properties settings) {
