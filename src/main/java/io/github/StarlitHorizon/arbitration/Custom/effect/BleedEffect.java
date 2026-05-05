@@ -18,7 +18,7 @@ public class BleedEffect extends MobEffect {
 	}
 	@Override
 	public boolean shouldApplyEffectTickThisTick(int tickCount, int amplifier) {
-		int interval = 20 >> amplifier;
+		int interval = 15 >> amplifier;
 		return interval > 0 ? tickCount % interval == 0 : true;
 	}
 

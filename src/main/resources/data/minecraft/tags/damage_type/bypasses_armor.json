@@ -1,6 +1,7 @@
 {
 	"replace": false,
 	"values": [
-		"arbitration:pulverise"
+		"arbitration:pulverise",
+		"arbitration:bleed"
 	]
 }

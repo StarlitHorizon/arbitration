@@ -96,14 +96,14 @@ public class ArbItems {
 			.fireResistant()
 			.stacksTo(1)
 			.component(DataComponents.UNBREAKABLE,Unit.INSTANCE)
-			.sword(ToolMaterial.NETHERITE,10,-2.8F)
+			.sword(ToolMaterial.NETHERITE,7,-3F)
 	);
 
 	public static final Item SERUMW = register(
 		"serumw",
 		Serumw::new,
 		new Item.Properties()
-			.useCooldown(5F)
+			.useCooldown(7.5F)
 			.rarity(Rarity.EPIC)
 	);
 
@@ -111,7 +111,7 @@ public class ArbItems {
 		"serumr",
 		Serumr::new,
 		new Item.Properties()
-			.useCooldown(5F)
+			.useCooldown(7.5F)
 			.rarity(Rarity.EPIC)
 	);
 
@@ -119,7 +119,7 @@ public class ArbItems {
 		"serumk",
 		Serumk::new,
 		new Item.Properties()
-			.useCooldown(7.5F)
+			.useCooldown(15F)
 			.rarity(Rarity.EPIC)
 	);
 

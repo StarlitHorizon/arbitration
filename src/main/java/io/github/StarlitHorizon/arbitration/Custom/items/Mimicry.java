@@ -35,9 +35,9 @@ public class Mimicry extends Item {
 	@Override
 	public InteractionResult use(Level level, Player user, InteractionHand hand) {
 		if (level instanceof ServerLevel serverLevel) {
-			user.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 15*20, 0));
-			user.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 15*20, 0));
-			user.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 20*20, 1));
+			user.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 5*20, 0));
+			user.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 5*20, 0));
+			user.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 10*20, 0));
 			AreaEffectCloud shockwave = new AreaEffectCloud(serverLevel, user.getX(), user.getEyeY()-1, user.getZ());
 			user.invulnerableTime=10;
 			shockwave.setOwner(user);
@@ -56,8 +56,8 @@ public class Mimicry extends Item {
 							level.registryAccess()
 								.lookupOrThrow(Registries.DAMAGE_TYPE)
 								.get(ArbDamageTypes.BLEED_DAMAGE.identifier()).orElseThrow()),
-						15);
-					entity.addEffect(new MobEffectInstance(ArbEffects.BLEED, 15*20, 1));
+						10F);
+					entity.forceAddEffect(new MobEffectInstance(ArbEffects.BLEED, 15*20, 1),user);
 				}
 			}
 			level.playSound(null,user, SoundEvents.PLAYER_ATTACK_SWEEP,user.getSoundSource(),1,1);
@@ -69,6 +69,6 @@ public class Mimicry extends Item {
 	@Override
 	public void hurtEnemy(ItemStack itemStack, LivingEntity mob, LivingEntity attacker) {
 		super.hurtEnemy(itemStack, mob, attacker);
-		mob.addEffect(new MobEffectInstance(ArbEffects.BLEED,100,0,false,false,true));
+		mob.forceAddEffect(new MobEffectInstance(ArbEffects.BLEED,100,0,false,false,true),attacker);
 	}
 }

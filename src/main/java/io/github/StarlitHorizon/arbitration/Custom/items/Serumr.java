@@ -18,6 +18,7 @@ public class Serumr extends Item {
 	public InteractionResult use(Level level, Player user, InteractionHand hand) {
 		user.playSound(SoundEvents.BREWING_STAND_BREW);
 		user.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 10*20, 2));
+		user.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 10*20, 1));
 		ItemStack heldStack = user.getItemInHand(hand);
 		heldStack.consumeAndReturn(1,user);
 		return InteractionResult.SUCCESS;
