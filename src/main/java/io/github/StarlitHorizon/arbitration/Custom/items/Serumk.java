@@ -17,7 +17,7 @@ public class Serumk extends Item {
 
 	public InteractionResult use(Level level, Player user, InteractionHand hand) {
 		user.playSound(SoundEvents.BREWING_STAND_BREW);
-		user.addEffect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 30*20, 0));
+		user.addEffect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 30*20, 2));
 		user.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 5*20, 2));
 		ItemStack heldStack = user.getItemInHand(hand);
 		heldStack.consumeAndReturn(1,user);

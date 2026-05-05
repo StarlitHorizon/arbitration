@@ -17,7 +17,7 @@ public class BinahChain extends Item{
 	@Override
 	public InteractionResult use(Level level, Player user, InteractionHand hand) {
 		if (level instanceof ServerLevel serverLevel) {
-			Projectile.spawnProjectileFromRotation(ArbChain::new, serverLevel, user.getItemInHand(hand), user, 0.0F, 4.5F, 0);
+			Projectile.spawnProjectileFromRotation(ArbChain::new, serverLevel, user.getItemInHand(hand), user, 0.0F, 5F, 0);
 		}
 		return InteractionResult.SUCCESS;
 	}

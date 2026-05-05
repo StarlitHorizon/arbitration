@@ -21,7 +21,7 @@ public class BinahPillar extends Item implements ProjectileItem {
 	@Override
 	public InteractionResult use(Level level, Player user, InteractionHand hand) {
 		if (level instanceof ServerLevel serverLevel) {
-			Projectile.spawnProjectileFromRotation(ArbPillar::new, serverLevel, user.getItemInHand(hand), user, 0.0F, 7.5F, 0);
+			Projectile.spawnProjectileFromRotation(ArbPillar::new, serverLevel, user.getItemInHand(hand), user, 0.0F, 10F, 0);
 		}
 		return InteractionResult.SUCCESS;
 	}

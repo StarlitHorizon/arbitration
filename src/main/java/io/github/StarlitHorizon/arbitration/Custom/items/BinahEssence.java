@@ -57,19 +57,19 @@ public class BinahEssence extends Item implements ProjectileItem {
 
 		}
 		else if (level instanceof ServerLevel serverLevel && mode.equals("Fairy")) {
-			Projectile.spawnProjectileFromRotation(ArbFairy::new, serverLevel, ArbItems.BINAH_FAIRY.getDefaultInstance(), user, 0.0F, 5F, 0);
+			Projectile.spawnProjectileFromRotation(ArbFairy::new, serverLevel, ArbItems.BINAH_FAIRY.getDefaultInstance(), user, 0.0F, 6F, 0);
 		} else if (level instanceof ServerLevel serverLevel && mode.equals("Chain")) {
-			Projectile.spawnProjectileFromRotation(ArbChain::new, serverLevel, ArbItems.BINAH_CHAIN.getDefaultInstance(), user, 0.0F, 5F, 0);
+			Projectile.spawnProjectileFromRotation(ArbChain::new, serverLevel, ArbItems.BINAH_CHAIN.getDefaultInstance(), user, 0.0F, 6F, 0);
 		} else if (level instanceof ServerLevel serverLevel && mode.equals("Pillar")) {
-			Projectile.spawnProjectileFromRotation(ArbPillar::new, serverLevel, itemStack, user, 0.0F, 5F, 0);
+			Projectile.spawnProjectileFromRotation(ArbPillar::new, serverLevel, itemStack, user, 0.0F, 10F, 0);
 		} else if (level instanceof ServerLevel serverLevel && mode.equals("Lock")) {
-			Projectile.spawnProjectileFromRotation(ArbLock::new, serverLevel, ArbItems.BINAH_LOCK.getDefaultInstance(), user, 0.0F, 10F, 0);
+			Projectile.spawnProjectileFromRotation(ArbLock::new, serverLevel, ArbItems.BINAH_LOCK.getDefaultInstance(), user, 0.0F, 6F, 0);
 		} else if (level instanceof ServerLevel serverLevel && mode.equals("Shockwave")) {
 			AreaEffectCloud shockwave = new AreaEffectCloud(serverLevel, user.getX(), user.getY(), user.getZ());
 			user.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 300, 3));
 			shockwave.setOwner(user);
 			shockwave.setCustomParticle(FabricBlockParticleOption.create(ParticleTypes.BLOCK_CRUMBLE,user.getBlockStateOn(),new BlockPos(user.getBlockX(), user.getBlockY()-1, user.getBlockZ())));
-			shockwave.setRadius(12.5F);
+			shockwave.setRadius(10F);
 			shockwave.setWaitTime(0);
 			shockwave.setDuration(12);
 			shockwave.setRadiusPerTick(0F);

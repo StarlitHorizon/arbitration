@@ -96,7 +96,7 @@ public class ArbItems {
 			.fireResistant()
 			.stacksTo(1)
 			.component(DataComponents.UNBREAKABLE,Unit.INSTANCE)
-			.sword(ToolMaterial.NETHERITE,7,-3F)
+			.sword(ToolMaterial.NETHERITE,7,-2.9F)
 	);
 
 	public static final Item SERUMW = register(

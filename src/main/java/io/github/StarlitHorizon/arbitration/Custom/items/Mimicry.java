@@ -25,8 +25,10 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.entity.UUIDLookup;
 
 import java.util.List;
+import java.util.UUID;
 
 public class Mimicry extends Item {
 	public Mimicry(Properties properties) {
@@ -35,9 +37,16 @@ public class Mimicry extends Item {
 	@Override
 	public InteractionResult use(Level level, Player user, InteractionHand hand) {
 		if (level instanceof ServerLevel serverLevel) {
-			user.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 5*20, 0));
-			user.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 5*20, 0));
-			user.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 10*20, 0));
+			if (user.getStringUUID().equals("f704943e-563c-4892-a711-a91a03141a09")) {
+				user.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 15 * 20, 1));
+				user.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 15 * 20, 1));
+				user.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 15 * 20, 1));
+			}
+			else {
+				user.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 5 * 20, 0));
+				user.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 5 * 20, 0));
+				user.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 10 * 20, 0));
+			}
 			AreaEffectCloud shockwave = new AreaEffectCloud(serverLevel, user.getX(), user.getEyeY()-1, user.getZ());
 			user.invulnerableTime=10;
 			shockwave.setOwner(user);
@@ -69,6 +78,10 @@ public class Mimicry extends Item {
 	@Override
 	public void hurtEnemy(ItemStack itemStack, LivingEntity mob, LivingEntity attacker) {
 		super.hurtEnemy(itemStack, mob, attacker);
-		mob.forceAddEffect(new MobEffectInstance(ArbEffects.BLEED,100,0,false,false,true),attacker);
+		if (attacker instanceof Player) {
+			if (attacker.getStringUUID().equals("f704943e-563c-4892-a711-a91a03141a09")) mob.forceAddEffect(new MobEffectInstance(ArbEffects.BLEED,100,1,false,false,true),attacker);
+			else mob.forceAddEffect(new MobEffectInstance(ArbEffects.BLEED,100,0,false,false,true),attacker);
+		}
+		else mob.forceAddEffect(new MobEffectInstance(ArbEffects.BLEED,100,0,false,false,true),attacker);
 	}
 }

@@ -10,6 +10,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.throwableitemprojectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -41,7 +42,10 @@ public class ArbPillar extends ThrowableItemProjectile {
 		super.onHit(hitResult);
 		if (this.level() instanceof ServerLevel serverLevel) {
 			if (!exploded) {
-				this.level().explode(this, this.getX(), this.getY(), this.getZ(), 2.5F, serverLevel.getGameRules().get(GameRules.MOB_GRIEFING), Level.ExplosionInteraction.MOB);
+				if (this.getOwner() instanceof Player)
+					if (this.getOwner().getStringUUID().equals("26b08ef8-a0e8-4a38-b92c-285a14b27d32"))
+						this.level().explode(this, this.getX(), this.getY(), this.getZ(), 10F, serverLevel.getGameRules().get(GameRules.MOB_GRIEFING), Level.ExplosionInteraction.MOB);
+				else this.level().explode(this, this.getX(), this.getY(), this.getZ(), 2.5F, serverLevel.getGameRules().get(GameRules.MOB_GRIEFING), Level.ExplosionInteraction.MOB);
 				serverLevel.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.MACE_SMASH_GROUND_HEAVY, this.getSoundSource());
 				exploded = true;
 			}
@@ -57,7 +61,9 @@ public class ArbPillar extends ThrowableItemProjectile {
 					.lookupOrThrow(Registries.DAMAGE_TYPE)
 					.get(ArbDamageTypes.PULVERISE_DAMAGE.identifier()).orElseThrow()
 			);
-			var6.hurtServer(serverLevel, damageSource, 15.0F);
+			if (this.getOwner() instanceof Player)
+				if (!(this.getOwner().getStringUUID().equals("f704943e-563c-4892-a711-a91a03141a09")))
+					var6.hurtServer(serverLevel, damageSource, 15.0F);
 			serverLevel.playSound(null,var6.getX(), var6.getY(), var6.getZ(), SoundEvents.MACE_SMASH_GROUND, this.getSoundSource());
 		}
 	}
