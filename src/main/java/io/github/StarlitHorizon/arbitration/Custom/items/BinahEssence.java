@@ -73,7 +73,7 @@ public class BinahEssence extends Item implements ProjectileItem {
 			shockwave.setWaitTime(0);
 			shockwave.setDuration(12);
 			shockwave.setRadiusPerTick(0F);
-			shockwave.setPotionDurationScale(1);
+			shockwave.setPotionDurationScale(1F);
 			serverLevel.addFreshEntity(shockwave);
 			user.invulnerableTime=15;
 			List<LivingEntity> targets = user.level().getEntitiesOfClass(LivingEntity.class, shockwave.getBoundingBox());
