@@ -51,7 +51,7 @@ public class ArbChain extends ThrowableItemProjectile {
 					.lookupOrThrow(Registries.DAMAGE_TYPE)
 					.get(ArbDamageTypes.FAIRY_DAMAGE.identifier()).orElseThrow()
 			);
-			var6.hurtServer(serverLevel, damageSource, 8.0F);
+			var6.hurtServer(serverLevel, damageSource, 10.0F);
 			serverLevel.playSound(null,var6.getX(), var6.getY(), var6.getZ(), SoundEvents.TRIDENT_HIT_GROUND, this.getSoundSource());
 			if (var6 instanceof LivingEntity livingEntity) {
 				var instance1 = new MobEffectInstance(MobEffects.SLOWNESS, 10 * 20, 1, false, false, true);

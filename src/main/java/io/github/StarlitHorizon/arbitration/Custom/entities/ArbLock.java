@@ -50,13 +50,13 @@ public class ArbLock extends ThrowableItemProjectile {
 					.lookupOrThrow(Registries.DAMAGE_TYPE)
 					.get(ArbDamageTypes.FAIRY_DAMAGE.identifier()).orElseThrow()
 			);
-			var6.hurtServer(serverLevel, damageSource, 10F);
+			var6.hurtServer(serverLevel, damageSource, 12F);
 			serverLevel.playSound(null,var6.getX(), var6.getY(), var6.getZ(), SoundEvents.TRIDENT_HIT_GROUND, this.getSoundSource());
 			if (var6 instanceof LivingEntity livingEntity) {
 				var instance = new MobEffectInstance(ArbEffects.LOCK, 20 * 20, 0, false, false, true);
 				livingEntity.hurtArmor(damageSource,10);
 				livingEntity.addEffect(instance);
-				livingEntity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 20 * 20, 0, false, false, true));
+				livingEntity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 20 * 20, 1, false, false, true));
 				livingEntity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 20, 0, false, false, true));
 				livingEntity.playSound(SoundEvents.AMETHYST_BLOCK_STEP, 2F, 1F); // plays a sound for the entity hit only
 			}
