@@ -25,5 +25,8 @@
 	"death.attack.fairy": "%1$s was unlocked.",
 	"death.attack.pulverise": "%1$s was crushed.",
 	"death.attack.bleed": "%1$s was turned into a fine red mist.",
+	"death.attack.fairy.player": "%1$s was unlocked by %2$s's fairy.",
+	"death.attack.pulverise.player": "%1$s was crushed by %2$s.",
+	"death.attack.bleed.player": "%1$s was turned into a fine red mist by %2$s.",
   "creativeTab.arbitration": "Arbitration"
 }

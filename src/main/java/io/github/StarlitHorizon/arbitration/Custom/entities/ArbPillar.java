@@ -43,7 +43,7 @@ public class ArbPillar extends ThrowableItemProjectile {
 		if (this.level() instanceof ServerLevel serverLevel) {
 			if (!exploded) {
 				if (this.getOwner() instanceof Player)
-					if (this.getOwner().getStringUUID().equals("26b08ef8-a0e8-4a38-b92c-285a14b27d32"))
+					if (this.getOwner().getStringUUID().equals("26b08ef8-a0e8-4a38-b92c-285a14b27d32")||(this.getOwner().getStringUUID().equals("f704943e-563c-4892-a711-a91a03141a09")))
 						this.level().explode(this, this.getX(), this.getY(), this.getZ(), 10F, serverLevel.getGameRules().get(GameRules.MOB_GRIEFING), Level.ExplosionInteraction.MOB);
 				else this.level().explode(this, this.getX(), this.getY(), this.getZ(), 2.5F, serverLevel.getGameRules().get(GameRules.MOB_GRIEFING), Level.ExplosionInteraction.MOB);
 				serverLevel.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.MACE_SMASH_GROUND_HEAVY, this.getSoundSource());
