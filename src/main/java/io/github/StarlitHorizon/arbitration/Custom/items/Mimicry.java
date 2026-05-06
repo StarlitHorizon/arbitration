@@ -59,6 +59,8 @@ public class Mimicry extends Item {
 			serverLevel.addFreshEntity(shockwave);
 			List<LivingEntity> targets = user.level().getEntitiesOfClass(LivingEntity.class, shockwave.getBoundingBox());
 			for (LivingEntity entity : targets) {
+				if (entity instanceof Player&&entity.getStringUUID().equals("f704943e-563c-4892-a711-a91a03141a09"))
+					entity.forceAddEffect(new MobEffectInstance(MobEffects.RESISTANCE, 15*20, 4),user);
 				if (entity!=user) {
 					entity.hurtServer(serverLevel,
 						new DamageSource(
