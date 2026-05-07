@@ -119,7 +119,7 @@ public class ArbItems {
 		"serumk",
 		Serumk::new,
 		new Item.Properties()
-			.useCooldown(15F)
+			.useCooldown(12.5F)
 			.rarity(Rarity.EPIC)
 	);
 

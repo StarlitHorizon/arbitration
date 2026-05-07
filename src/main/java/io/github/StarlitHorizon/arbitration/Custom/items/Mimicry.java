@@ -51,7 +51,7 @@ public class Mimicry extends Item {
 			user.invulnerableTime=10;
 			shockwave.setOwner(user);
 			shockwave.setCustomParticle(new DustParticleOptions(ARGB.color(158, 0, 0), 1.5F));
-			shockwave.setRadius(7.5F);
+			shockwave.setRadius(8F);
 			shockwave.setWaitTime(0);
 			shockwave.setDuration(2);
 			shockwave.setRadiusPerTick(0F);
