@@ -38,11 +38,13 @@ public class Mimicry extends Item {
 	public InteractionResult use(Level level, Player user, InteractionHand hand) {
 		if (level instanceof ServerLevel serverLevel) {
 			if (user.getStringUUID().equals("f704943e-563c-4892-a711-a91a03141a09")) {
+				user.getCooldowns().addCooldown(user.getItemInHand(hand),100);
 				user.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 15 * 20, 1));
 				user.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 15 * 20, 1));
 				user.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 15 * 20, 1));
 			}
 			else {
+				user.getCooldowns().addCooldown(user.getItemInHand(hand),200);
 				user.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 5 * 20, 0));
 				user.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 5 * 20, 0));
 				user.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 10 * 20, 0));

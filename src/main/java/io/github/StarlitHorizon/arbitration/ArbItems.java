@@ -40,7 +40,6 @@ public class ArbItems {
 		"binah_essence",
 		BinahEssence::new,
 		new Item.Properties()
-			.useCooldown(5F)
 			.component(ArbComponents.ESSENCE_MODE, "Fairy")
 			.rarity(Rarity.EPIC)
 			.fireResistant()
@@ -91,7 +90,6 @@ public class ArbItems {
 		"mimicry",
 		Mimicry::new,
 		new Item.Properties()
-			.useCooldown(10F)
 			.rarity(Rarity.EPIC)
 			.fireResistant()
 			.stacksTo(1)
