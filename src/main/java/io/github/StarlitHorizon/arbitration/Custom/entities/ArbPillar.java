@@ -44,8 +44,8 @@ public class ArbPillar extends ThrowableItemProjectile {
 			if (!exploded) {
 				if (this.getOwner() instanceof Player)
 					if (this.getOwner().getStringUUID().equals("26b08ef8-a0e8-4a38-b92c-285a14b27d32")||(this.getOwner().getStringUUID().equals("f704943e-563c-4892-a711-a91a03141a09")))
-						this.level().explode(this, this.getX(), this.getY(), this.getZ(), 4F, serverLevel.getGameRules().get(GameRules.MOB_GRIEFING), Level.ExplosionInteraction.MOB);
-				else this.level().explode(this, this.getX(), this.getY(), this.getZ(), 0.5F, serverLevel.getGameRules().get(GameRules.MOB_GRIEFING), Level.ExplosionInteraction.MOB);
+						this.level().explode(this, this.getX(), this.getY(), this.getZ(), 5F, serverLevel.getGameRules().get(GameRules.MOB_GRIEFING), Level.ExplosionInteraction.MOB);
+				else this.level().explode(this, this.getX(), this.getY(), this.getZ(), 1F, serverLevel.getGameRules().get(GameRules.MOB_GRIEFING), Level.ExplosionInteraction.MOB);
 				serverLevel.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.MACE_SMASH_GROUND_HEAVY, this.getSoundSource());
 				exploded = true;
 			}
@@ -63,7 +63,7 @@ public class ArbPillar extends ThrowableItemProjectile {
 			);
 			if (this.getOwner() instanceof Player)
 				if (!(this.getOwner().getStringUUID().equals("f704943e-563c-4892-a711-a91a03141a09")))
-					var6.hurtServer(serverLevel, damageSource, 16.0F);
+					var6.hurtServer(serverLevel, damageSource, 10.0F);
 			serverLevel.playSound(null,var6.getX(), var6.getY(), var6.getZ(), SoundEvents.MACE_SMASH_GROUND, this.getSoundSource());
 		}
 	}
@@ -90,7 +90,7 @@ public class ArbPillar extends ThrowableItemProjectile {
 		this.life++;
 		if (this.life >= x) {
 			if (this.level() instanceof ServerLevel serverLevel) {
-				this.level().explode(this, this.getX(), this.getY(), this.getZ(), 1.5F, serverLevel.getGameRules().get(GameRules.MOB_GRIEFING), Level.ExplosionInteraction.MOB);
+				this.level().explode(this, this.getX(), this.getY(), this.getZ(), 3F, serverLevel.getGameRules().get(GameRules.MOB_GRIEFING), Level.ExplosionInteraction.MOB);
 			}
 			this.discard();
 		}

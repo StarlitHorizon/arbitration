@@ -52,19 +52,25 @@ public class BinahEssence extends Item implements ProjectileItem {
 		ItemStack itemStack = user.getItemInHand(hand);
 		String mode = itemStack.getOrDefault(ArbComponents.ESSENCE_MODE, "Fairy");
 		if (user.isShiftKeyDown()) {
+			user.getCooldowns().addCooldown(itemStack,5);
 			index = modes.indexOf(mode) + 1;
 			level.playSound(null,user, SoundEvents.END_PORTAL_FRAME_FILL,user.getSoundSource(),0.75F,1.5F);
 
 		}
 		else if (level instanceof ServerLevel serverLevel && mode.equals("Fairy")) {
+			user.getCooldowns().addCooldown(itemStack,40);
 			Projectile.spawnProjectileFromRotation(ArbFairy::new, serverLevel, ArbItems.BINAH_FAIRY.getDefaultInstance(), user, 0.0F, 6F, 0);
 		} else if (level instanceof ServerLevel serverLevel && mode.equals("Chain")) {
+			user.getCooldowns().addCooldown(itemStack,40);
 			Projectile.spawnProjectileFromRotation(ArbChain::new, serverLevel, ArbItems.BINAH_CHAIN.getDefaultInstance(), user, 0.0F, 6F, 0);
 		} else if (level instanceof ServerLevel serverLevel && mode.equals("Pillar")) {
+			user.getCooldowns().addCooldown(itemStack,100);
 			Projectile.spawnProjectileFromRotation(ArbPillar::new, serverLevel, itemStack, user, 0.0F, 10F, 0);
 		} else if (level instanceof ServerLevel serverLevel && mode.equals("Lock")) {
+			user.getCooldowns().addCooldown(itemStack,50);
 			Projectile.spawnProjectileFromRotation(ArbLock::new, serverLevel, ArbItems.BINAH_LOCK.getDefaultInstance(), user, 0.0F, 6F, 0);
 		} else if (level instanceof ServerLevel serverLevel && mode.equals("Shockwave")) {
+			user.getCooldowns().addCooldown(itemStack,100);
 			AreaEffectCloud shockwave = new AreaEffectCloud(serverLevel, user.getX(), user.getY(), user.getZ());
 			user.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 300, 3));
 			shockwave.setOwner(user);
@@ -85,7 +91,6 @@ public class BinahEssence extends Item implements ProjectileItem {
 								.lookupOrThrow(Registries.DAMAGE_TYPE)
 								.get(ArbDamageTypes.PULVERISE_DAMAGE.identifier()).orElseThrow()),
 						15);
-					entity.addEffect(new MobEffectInstance(MobEffects.INSTANT_DAMAGE, 1, 3));
 					entity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 300, 1));
 					entity.addEffect(new MobEffectInstance(ArbEffects.LOCK, 300, 2));
 				}

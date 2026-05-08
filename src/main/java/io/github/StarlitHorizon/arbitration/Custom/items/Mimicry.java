@@ -38,11 +38,13 @@ public class Mimicry extends Item {
 	public InteractionResult use(Level level, Player user, InteractionHand hand) {
 		if (level instanceof ServerLevel serverLevel) {
 			if (user.getStringUUID().equals("f704943e-563c-4892-a711-a91a03141a09")) {
+				user.getCooldowns().addCooldown(user.getItemInHand(hand),100);
 				user.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 15 * 20, 1));
 				user.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 15 * 20, 1));
 				user.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 15 * 20, 1));
 			}
 			else {
+				user.getCooldowns().addCooldown(user.getItemInHand(hand),200);
 				user.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 5 * 20, 0));
 				user.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 5 * 20, 0));
 				user.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 10 * 20, 0));
@@ -68,7 +70,7 @@ public class Mimicry extends Item {
 								.lookupOrThrow(Registries.DAMAGE_TYPE)
 								.get(ArbDamageTypes.BLEED_DAMAGE.identifier()).orElseThrow()),
 						10F);
-					entity.forceAddEffect(new MobEffectInstance(ArbEffects.BLEED, 15*20, 1),user);
+					entity.forceAddEffect(new MobEffectInstance(ArbEffects.BLEED, 5*20, 2),user);
 				}
 			}
 			level.playSound(null,user, SoundEvents.PLAYER_ATTACK_SWEEP,user.getSoundSource(),1,1);
