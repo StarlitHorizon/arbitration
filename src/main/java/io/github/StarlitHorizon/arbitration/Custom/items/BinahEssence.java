@@ -90,7 +90,7 @@ public class BinahEssence extends Item implements ProjectileItem {
 							level.registryAccess()
 								.lookupOrThrow(Registries.DAMAGE_TYPE)
 								.get(ArbDamageTypes.PULVERISE_DAMAGE.identifier()).orElseThrow()),
-						15);
+						12.5F);
 					entity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 300, 1));
 					entity.addEffect(new MobEffectInstance(ArbEffects.LOCK, 300, 2));
 				}
