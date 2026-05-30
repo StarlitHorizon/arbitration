@@ -68,7 +68,7 @@ public class Mimicry extends Item {
 						new DamageSource(
 							level.registryAccess()
 								.lookupOrThrow(Registries.DAMAGE_TYPE)
-								.get(ArbDamageTypes.BLEED_DAMAGE.identifier()).orElseThrow()),
+								.get(ArbDamageTypes.BLEED_DAMAGE.identifier()).orElseThrow(), user),
 						10F);
 					entity.forceAddEffect(new MobEffectInstance(ArbEffects.BLEED, 5*20, 2),user);
 				}

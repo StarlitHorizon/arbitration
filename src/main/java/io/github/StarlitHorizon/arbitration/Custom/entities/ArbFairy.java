@@ -58,7 +58,8 @@ public class ArbFairy extends ThrowableItemProjectile {
 			DamageSource damageSource = new DamageSource(
 				serverLevel.registryAccess()
 					.lookupOrThrow(Registries.DAMAGE_TYPE)
-					.get(ArbDamageTypes.FAIRY_DAMAGE.identifier()).orElseThrow()
+					.get(ArbDamageTypes.FAIRY_DAMAGE.identifier()).orElseThrow(),
+				this.getOwner()
 			);
 			var6.hurtServer(serverLevel, damageSource, 8.0F);
 			serverLevel.playSound(null,var6.getX(), var6.getY(), var6.getZ(), SoundEvents.TRIDENT_HIT_GROUND, this.getSoundSource());

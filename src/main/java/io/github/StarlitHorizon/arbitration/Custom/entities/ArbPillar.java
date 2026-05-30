@@ -59,11 +59,10 @@ public class ArbPillar extends ThrowableItemProjectile {
 			DamageSource damageSource = new DamageSource(
 				serverLevel.registryAccess()
 					.lookupOrThrow(Registries.DAMAGE_TYPE)
-					.get(ArbDamageTypes.PULVERISE_DAMAGE.identifier()).orElseThrow()
+					.get(ArbDamageTypes.PULVERISE_DAMAGE.identifier()).orElseThrow(),
+				this.getOwner()
 			);
-			if (this.getOwner() instanceof Player)
-				if (!(this.getOwner().getStringUUID().equals("f704943e-563c-4892-a711-a91a03141a09")))
-					var6.hurtServer(serverLevel, damageSource, 12.5F);
+			var6.hurtServer(serverLevel, damageSource, 12.5F);
 			serverLevel.playSound(null,var6.getX(), var6.getY(), var6.getZ(), SoundEvents.MACE_SMASH_GROUND, this.getSoundSource());
 		}
 	}
