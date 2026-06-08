@@ -39,7 +39,7 @@ public class Mimicry extends Item {
 		if (level instanceof ServerLevel serverLevel) {
 			if (user.getStringUUID().equals("f704943e-563c-4892-a711-a91a03141a09")) {
 				user.getCooldowns().addCooldown(user.getItemInHand(hand),100);
-				user.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 15 * 20, 1));
+				user.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 15 * 20, 3));
 				user.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 15 * 20, 1));
 				user.addEffect(new MobEffectInstance(MobEffects.STRENGTH, 15 * 20, 1));
 			}
@@ -53,7 +53,7 @@ public class Mimicry extends Item {
 			user.invulnerableTime=10;
 			shockwave.setOwner(user);
 			shockwave.setCustomParticle(new DustParticleOptions(ARGB.color(158, 0, 0), 1.5F));
-			shockwave.setRadius(8F);
+			shockwave.setRadius(5F);
 			shockwave.setWaitTime(0);
 			shockwave.setDuration(2);
 			shockwave.setRadiusPerTick(0F);
@@ -61,8 +61,6 @@ public class Mimicry extends Item {
 			serverLevel.addFreshEntity(shockwave);
 			List<LivingEntity> targets = user.level().getEntitiesOfClass(LivingEntity.class, shockwave.getBoundingBox());
 			for (LivingEntity entity : targets) {
-				if (entity instanceof Player&&entity.getStringUUID().equals("f704943e-563c-4892-a711-a91a03141a09"))
-					entity.forceAddEffect(new MobEffectInstance(MobEffects.RESISTANCE, 15*20, 3),user);
 				if (entity!=user) {
 					entity.hurtServer(serverLevel,
 						new DamageSource(
